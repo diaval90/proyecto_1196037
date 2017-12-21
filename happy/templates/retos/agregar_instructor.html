@@ -1,0 +1,15 @@
+{% extends 'retos/base.html' %}
+{% block content %}
+{% if user.is_authenticated and user.is_staff %}
+<div class="container">
+	<h4 align="center">Agregar Instructor</h4>
+	<form action="." method="POST" class="InstructorForm">
+
+		{% csrf_token %}
+		{{ form_x.as_p }}
+		{{ form_i.as_p }}
+		<button type="submit" class="save btn btn-default orange darken-4">Registrar</button>
+	</form> 
+</div>
+{% endif %}
+{% endblock %}

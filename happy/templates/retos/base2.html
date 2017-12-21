@@ -1,0 +1,117 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<title>Index-HappyStudent</title>
+
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+		<link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="/static/index.css">
+
+
+	<link href="https://fonts.googleapis.com/css?family=Courgette|Fascinate+Inline|Montserrat|Open+Sans|PT+Sans+Narrow|Pacifico|Roboto+Condensed|Saira+Semi+Condensed|Slabo+27px|Teko|Philosopher|" rel="stylesheet">
+
+</head>
+<body>
+	
+	<!-- Comienzo del nav-->
+	<header  id="header" class="page-topbar">
+	<nav role="navigation">
+	<div class="nav-wrapper container" >
+			<img id="logo-container" class="brand-logo left-align" src="/static/imagen/logo.png">
+
+			<ul id="partes" class="right hide-on-med-and-down ">
+				<li><a href="#">REGISTRO</a></li>
+			</ul>
+			<ul id="partes" class="right hide-on-med-and-down ">
+				<li><a href="#">SERVICIOS</a></li>
+			</ul>
+			<ul id="partes" class="right hide-on-med-and-down ">
+				<li><a href="#">CONTACTO</a></li>
+			</ul>
+
+			<ul id="nav-mobile" class="side-nav">
+				<li><a href="#">REGISTRO</a></li>
+				<li><a href="#">SERVICIOS</a></li>
+				<li><a href="#">CONTACTO </a></li>
+			</ul>
+			<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons white-text">menu</i></a>
+		</div>
+	</nav>
+		</header>
+	
+	
+<!-- Fin del nav-->
+
+
+<section>
+	
+		{% block parallax1 %}
+		{% endblock %}
+
+		<div class="container">
+			<div class="col 6 m8 offset-m2 l6 offset-l3 ">
+				{% block content %}
+				{% endblock %}
+		    </div>
+	    </div>
+	    {% block parllax2%}
+		{% endblock %}
+	
+
+        {% block section %}
+        {% endblock %}
+       
+        {% block parallax3 %}
+        {% endblock %}
+        <br>
+        <br> 
+</section>
+	<footer class="page-footer orange darken-4">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h5 class="white-text">Company Bio</h5>
+					<p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+				</div>
+				<div class="col l3 s12">
+					<h5 class="white-text">Settings</h5>
+					<ul>
+						<li><a class="white-text" href="#!">Link 1</a></li>
+						<li><a class="white-text" href="#!">Link 2</a></li>
+						<li><a class="white-text" href="#!">Link 3</a></li>
+						<li><a class="white-text" href="#!">Link 4</a></li>
+					</ul>
+				</div>
+				<div class="col l3 s12">
+					<h5 class="white-text">Connect</h5>
+					<ul>
+						<li><a class="white-text" href="#!">Link 1</a></li>
+						<li><a class="white-text" href="#!">Link 2</a></li>
+						<li><a class="white-text" href="#!">Link 3</a></li>
+						<li><a class="white-text" href="#!">Link 4</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container">
+			Made by <a class="brown-text text-lighten-3" href="#">Sena</a>
+			</div>
+		</div>
+	</footer>
+
+
+	<!--  Scripts-->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="/static/js/materialize.js"></script>
+	<script src="/static/js/init.js"></script>
+
+	</body>
+</html>

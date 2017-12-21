@@ -1,0 +1,196 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>happystudent</title>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+		
+		<link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="/static/manejo.css">
+		<!-- tipo de texto -->
+		<link href="https://fonts.googleapis.com/css?family=Oxygen:300,400,700" rel="stylesheet">
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+<body>
+	<!--  Scripts-->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="/static/js/materialize.min.js"></script>
+	<script src="/static/js/materialize.js"></script>
+	<div class="page-header">
+	</div>
+	<nav class="color orange darken-4">
+		<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+		<ul class="side-nav" id="mobile-demo">
+		<h5 color="red">
+			<font  color="#e65100">
+				{{request.user}}
+			</font>
+		</h5>
+		<h6>	
+			<a href="{% url 'vista_logout' %}">cerrar sesion</a>
+		</h6>
+		<li class="no-padding">
+		<ul class="collapsible collapsible-accordion">
+		  <li>
+			<a class="collapsible-header">Retos<i class="material-icons right">arrow_drop_down</i></a>
+			<div class="collapsible-body">
+			  <ul>
+				<li><a href="{% url 'lista_reto' %}">lista de retos</a></li>
+				<li><a href="{% url 'lista_mis_retoss' %}">lista mis retos</a></li>
+
+				{% if user.is_authenticated and user.is_staff %}
+				<li><a href="{% url 'lista_reto_sin_c' %}">retos sin calificar</a></li>
+				<li><a href="{% url 'lista_retos_calificados' %}">retos calificados</a></li>
+				{% endif %}
+			  </ul>
+			</div>
+		   </li>
+		</ul>
+		</li>
+	  <li class="no-padding">
+		<ul class="collapsible collapsible-accordion">
+		  <li>
+			<a class="collapsible-header">Aprendiz<i class="material-icons right">arrow_drop_down</i></a>
+			<div class="collapsible-body">
+			  <ul>
+				{% if user.is_authenticated and user.is_staff %}
+				<li><a href="{% url 'aprendices' %}">lista de aprendices</a></li>
+				<li><a href="{% url 'excel' %}">importar lista aprendiz</a></li>
+				{% endif %}
+				{% if user.is_authenticated and user.is_active and user.is_staff = False %}
+				<li><a>perfil</a></li>
+				{% endif %}
+			  </ul>
+			</div>
+		  </li>
+		</ul>
+	  </li>
+	  {% if user.is_authenticated and user.is_staff %}
+		<li class="no-padding">
+		<ul class="collapsible collapsible-accordion">
+			<li>
+			<a class="collapsible-header">Instructor<i class="material-icons right">arrow_drop_down</i></a>
+			<div class="collapsible-body">
+			  <ul>
+				<li><a href="{% url 'lista_instructores' %}">lista de instructores</a></li>
+				<li><a href="{% url 'lista_instructores' %}">perfil</a></li>
+				<li><a href="{% url 'lista_categorias' %}">categorias</a></li>
+			  </ul>
+			</div>
+			</li>
+		</ul>
+		</li>
+		{% endif %}
+		<li class="no-padding">
+		<ul class="collapsible collapsible-accordion">
+			<li>
+			<a class="collapsible-header">ver ranking<i class="material-icons right">arrow_drop_down</i></a>
+			<div class="collapsible-body">
+			  <ul>
+				<li><a href="{% url 'ranking' %}">ranking</a></li>
+				<li><a href="{% url 'ranking_aprendices_retos_mas_realizados' %}">ranking retos mas realizados</a></li>
+				<li><a href="{% url 'retos_popular' %}">retos popular</a></li>
+			  </ul>
+			</div>
+			</li>
+		</ul>
+		</li>
+	</nav>
+
+	<!-- Comienzo de la barra lateral-->
+<aside>
+	<ul id="slide-out" class="side-nav fixed" >
+	<li id="li"> <img src="/static/imagen/logo.png" width="200px"></li>
+	<li id="sec">
+		<h5 color="red">
+			<a href="{% url 'ver_mi_perfil' %}"><font  color="#e65100">{{request.user}}</font></a>
+		</h5>
+		<h6>	
+			<a href="{% url 'vista_logout' %}">cerrar sesion</a>
+		</h6>
+		
+		<li class="no-padding">
+		<ul class="collapsible collapsible-accordion">
+		  <li>
+			<a class="collapsible-header">Retos<i class="material-icons right">arrow_drop_down</i></a>
+			<div class="collapsible-body">
+			  <ul>
+				<li><a href="{% url 'lista_reto' %}">lista de retos</a></li>
+				<li><a href="{% url 'lista_mis_retoss' %}">lista mis retos</a></li>
+
+				{% if user.is_authenticated and user.is_staff %}
+				<li><a href="{% url 'lista_reto_sin_c' %}">retos sin calificar</a></li>
+				<li><a href="{% url 'lista_retos_calificados' %}">retos calificados</a></li>
+				{% endif %}
+			  </ul>
+			</div>
+		  </li>
+		</ul>
+	  </li>
+		<li class="no-padding">
+		<ul class="collapsible collapsible-accordion">
+		  <li>
+			<a class="collapsible-header">Aprendiz<i class="material-icons right">arrow_drop_down</i></a>
+			<div class="collapsible-body">
+			  <ul>
+				{% if user.is_authenticated and user.is_staff %}
+				<li><a href="{% url 'aprendices' %}">lista de aprendices</a></li>
+				<li><a href="{% url 'excel' %}">importar lista aprendiz</a></li>
+				{% endif %}
+				{% if user.is_authenticated and user.is_active and user.is_staff = False %}
+				<li><a>perfil</a></li>
+				{% endif %}
+			  </ul>
+			</div>
+		  </li>
+		</ul>
+	  </li>
+		{% if user.is_authenticated and user.is_staff %}
+		<li class="no-padding">
+		<ul class="collapsible collapsible-accordion">
+			<li>
+			<a class="collapsible-header">Instructor<i class="material-icons right">arrow_drop_down</i></a>
+			<div class="collapsible-body">
+			  <ul>
+				<li><a href="{% url 'lista_instructores' %}">lista de instructores</a></li>
+				<li><a href="{% url 'lista_categorias' %}">categorias</a></li>
+			  </ul>
+			</div>
+			</li>
+		</ul>
+		</li>
+		{% endif %}
+		<li class="no-padding">
+		<ul class="collapsible collapsible-accordion">
+			<li>
+			<a class="collapsible-header">ver ranking<i class="material-icons right">arrow_drop_down</i></a>
+			<div class="collapsible-body">
+			  <ul>
+				<li><a href="{% url 'ranking' %}">ranking</a></li>
+				<li><a href="{% url 'ranking_aprendices_retos_mas_realizados' %}">ranking retos mas realizados</a></li>
+				<li><a href="{% url 'retos_popular' %}">retos popular</a></li>
+			  </ul>
+			</div>
+			</li>
+		</ul>
+		</li>
+</aside>
+		 <div class="container">
+			<div class="col 6 m8 offset-m2 l6 offset-l3 ">
+				{% block content %}
+				{% endblock %}
+			</div>
+		 </div> 
+<script src="/static/js/init2.js">
+</script>
+<script >
+	$(".button-collapse").sideNav();
+</script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans'),
+         url(opensans.eot) format('embedded-opentype'),
+         url(opensans.ttf) format('truetype'),
+         url(opensans.otf) format('opentype'),
+         url(opensans.woff) format('woff');
+}
+
+nav{
+  background: #ef6c00;
+  height: 150px;
+  border-radius: 0px 0px 0px 0px; 
+
+}
+
+
+nav .brand-logo{          
+  width: 250px;
+  height: 150px;
+}
+
+.fondoimg{
+  background: #ef6c00;
+  margin-right: 20%;
+  margin-left: 20%;
+  height: 250px;
+  z-index: 1;
+}

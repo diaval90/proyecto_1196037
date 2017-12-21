@@ -1,0 +1,50 @@
+{% extends 'retos/base.html' %}
+{% block content %}
+{% if user.is_authenticated and user.is_staff %}
+<div class="container">
+		{% if  mensaje  %}
+			<h5 class="color red">{{ mensaje }}</h5>
+		{% endif %}
+	<h4 align="center">Buscar Usuario</h4>
+	<form method="POST" action="" class="busqueda">
+			{% csrf_token %} 				
+			{{ form }}
+			<br>			
+			<button class="btn btn-default" color="#7F2148">busqueda</button>
+	</form>
+		<a href="{% url 'aprendices' %}"><button id="bto" class="btn btn-default" >cancelar</button></a>
+		<div class="card">
+			{% for a in ap %}
+			
+			<table class="striped ">
+				<thead>
+					<tr>
+						<th>USUARIO</th>
+						<th>ACCION</th>						
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<td><p>el aprendiz es: {{ a.identificacion }} {{ a.apellidos }} {{ a.nombres }} {% if a.user.is_active %}</p>
+						</td>
+						
+						<td>
+							<td><a href="{% url 'inhabilitar' pk=a.pk %}">Inhabilitar</a></td>
+							{% else %}
+										
+						</td>
+						<td>			
+							<a href="{% url 'inhabilitar' pk=a.pk %}">Habilitar</a>
+
+						</td>
+					</tr>
+				</tbody>					        
+			</table>
+								{% endif %}
+			{% endfor %}
+		
+		</div>
+</div>		
+{% endif %}
+{% endblock content %}

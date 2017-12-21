@@ -1,0 +1,18 @@
+{% extends 'retos/base2.html' %}
+{% block content %}
+<br>
+<br>
+<div class="container">
+	<div class="col s6 m4 l3 offset-s15 "> 
+    <div class="col s4 m6 l12  z-depth-5">
+	<h5 align="center">Iniciar Sesion</h5>
+ 	<form action="." method="POST" align="center" style="margin-right: 30%;  padding-left: 25%; padding-top: -20px; " >
+ 		{% csrf_token %}
+ 		{{mensaje}}
+ 		{{form.as_p}}
+ 		<input class="btn btn-default orange darken-4" type="submit" value="Login"/>
+ 	</form>
+ 	</div>
+</div>
+</div>
+ {% endblock %}	

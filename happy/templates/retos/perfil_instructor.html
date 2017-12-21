@@ -1,0 +1,18 @@
+{% extends 'retos/base.html' %}
+{% block content %}
+	<div class="container">
+		<div class="card">
+				<h4 align="center"> Mi Perfil instructor </h4>
+				<img src="/media/descarga.jpg" border=4 vspace=5 hspace=5 height="180px"  width="200px"  alt="imagen perfil" class="circle responsive-img" align="center">
+				<p>{{ ver.identificacion}}</p>
+				<p>{{ ver.nombres }}</p>
+				<p>{{ ver.apellidos }}</p>
+				<p>{{ ver.ficha }}  </p>
+				<p>{{ver.telefono}}</p>
+
+				<a href="{% url 'retos.views.editar' pk=ver.pk %}">editar</a>	
+				
+		</div>
+	</div>
+
+{% endblock %}

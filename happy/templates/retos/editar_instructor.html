@@ -1,0 +1,13 @@
+{% extends 'retos/base.html' %}
+{% block content %}
+<div class="container">
+	<h4 align="center">Editar Instructor</h4>
+	<form method="POST" class="instructorFormr" action=".">
+		{% csrf_token %}
+		{{ formulario_user.as_p }}
+		{{ form.as_p }}
+		<button type="submit" class="btn btn-default orange darken-4">guardar cambios</button>
+	</form> 
+	<a id="inst" class="btn btn-default orange darken-4" href="{% url 'lista_instructores' %}">atras</a>
+</div>	
+{% endblock %}

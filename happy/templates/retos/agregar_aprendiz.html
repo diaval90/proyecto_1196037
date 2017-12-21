@@ -1,0 +1,13 @@
+{% extends 'retos/base.html' %}
+{% block content %}
+<div class="container">
+<h4 align="center">Agregar Aprendiz</h4>
+	<form action="." method="POST" class="RegistroForm">
+		{% csrf_token %}
+		{{ form_a.as_p }}
+		{{ form_b.as_p }}
+		<button type="submit" class="save btn btn-default orange darken-4">Registrar</button>
+	</form> 
+	<a href="{% url 'aprendices' %}" id="buttonr" class="btn btn-default orange darken-4">Cancelar</a>
+</div>
+{% endblock %}

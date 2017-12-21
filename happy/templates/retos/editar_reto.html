@@ -1,0 +1,12 @@
+{% extends 'retos/base.html' %}
+{% block content %}
+<div class="container">
+<h4 align="center">Editar Reto</h4>
+	<form method="POST" class="Crear_Reto_Form"  enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit" class="save btn btn-default orange darken-4" >guardar</button>
+		<a class="btn btn-default orange darken-4" href="{% url 'lista_reto' %}">atras</a>
+	</form>
+</div> 
+{% endblock %}

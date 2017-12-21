@@ -1,0 +1,17 @@
+{% extends 'retos/base.html' %}
+{% block content %}
+{% if user.is_authenticated and user.is_staff %}
+<div class="container">
+		{% if  mensaje  %}
+		<h5 class="color green">{{ mensaje }}</h5>
+		{% endif %}
+<h4 align="center">Agregar Categoria</h4>
+	<form method="POST">
+		{% csrf_token %}
+		{{ form.as_p }} 
+		<button class="btn btn-default orange darken-4" type="submit">guardar</button>
+	</form>
+	 <a id="bm" class="btn btn-default orange darken-4" href="{% url 'lista_categorias' %}">cancelar</a>
+</div>
+{% endif %}
+ {% endblock%} 

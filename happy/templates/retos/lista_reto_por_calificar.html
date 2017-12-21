@@ -1,0 +1,43 @@
+{% extends 'retos/base.html' %}
+{% block content %}
+{% if user.is_authenticated and user.is_staff %}
+	<div class="container">
+		<div class="row">
+			<div class="col s12 m12">
+				<div class="card">
+					<div align="center" class="card-title " >Lista de Retos por calificar</div>
+					<table class="highlight">
+						<thead>
+							<tr>
+								<th>Nombre Reto</th>
+								<th>Persona</th>
+								<th>Puntuacion</th>
+								<th>Opciones</th>
+							</tr>
+						</thead>
+
+						<tbody>
+								{% for a in l %}
+							<tr>
+									<td>
+									{{a.reto}}
+									</td>
+									<td>
+									{{a.persona}}
+									</td>
+									<td>
+									{{a.calificacion}}
+									</td>
+									<td>
+									<a href="{% url 'retos.views.calificar_reto' pk=a.pk %}" class="btn btn-default orange darken-4">calificar</a>
+									</td>
+							</tr>
+								{% endfor %}
+						</tbody>
+					</table>
+				</div>	
+			</div>		
+		</div>	
+	</div>			
+{% endif %}
+{% endblock %}

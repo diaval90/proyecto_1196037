@@ -1,0 +1,21 @@
+{% extends 'retos/base.html' %}
+{% block content %}
+{% if user.is_authenticated and user.is_staff %}
+<div class="container">
+{% if  mensaje   %}
+<h5>{{ mensaje }}</h5>
+{% endif %}
+
+<h4 align="center">Crear Reto</h4>
+<p><strong>1. si la dificultad es basico los puntos maximos son 30 y no pueden ser menores a 0</strong></p>
+<p><strong>2. si la dificultad es medio los puntos maximos son 70 y no pueden ser menores a 31</strong></p>
+<p><strong>3. si la dificultad es dificil los puntos maximos son 100 y no pueden ser menores a 71</strong></p>
+<form  action= "." method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+	{{ form.as_p }}
+<button class="btn btn-default orange darken-4" type="submit">guardar</button>
+<a class="btn btn-default orange darken-4" href="{% url 'lista_reto' %}">cancelar</a>
+</form>
+</div>	
+{% endif %}
+{% endblock %}

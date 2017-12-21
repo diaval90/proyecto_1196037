@@ -1,0 +1,82 @@
+{% extends 'retos/base.html' %}
+{% block content %}
+<div class="container">
+<div class="card">
+		<h4 align="center">Detalle Del Reto</h4>
+		<p id="des">Descripcion:  {{ detalle.descripcion	}}</p>
+		<p id="fecc">Fecha Creacion: {{ detalle.fecha_creacion	}}</p>
+		<p id="fecp">Fecha Publicacion: {{ detalle.fecha_publicacion }}</p>
+		<p id="hop">Hora Publicacion: {{ detalle.hora_publicacion }}</p>
+		<p id="fecl">Fecha Limite: {{ detalle.fecha_limite }}  </p>
+		<p id="hol">Hora Limite: {{ detalle.hora_limite }}</p>	
+		<p id="tip">Tipo: {{ detalle.tipo}}</p>
+		<p id="arch">Archivo: <a href="/media/{{ detalle.archivo }}">{{ detalle.archivo }}</a></p>	
+		<p id="cta">Categoria: {{ detalle.categoria}}</p>
+		<p id="est">Estado: {{ detalle.estado}} </p>
+		<div class="row">
+		<p class="col s4" id="prem">Premio: <br>
+		<img  src="/media/{{ detalle.premio }}" height="100" border=3 height="300"></p>
+		</div>
+		<div class="row">
+		<div id="dif" class="col s3">Dificultad: {{ detalle.dificultad}}</div>
+		<p id="puntos_max">puntos maximos: {{ detalle.puntos_maximos }}</p>
+		</div>
+		{% if user.is_authenticated and user.is_staff %}
+		<div class="row">
+		<div id="like" class="col s3"><font color="blue"><i class="large material-icons" >thumb_up</i></font><strong>{{ detalle.like }}</strong ></div>
+		</div>
+        {% endif %}
+
+{% if user.is_authenticated and user.is_active and  user.is_staff = False %}
+
+{% if o.seleccion = True %}
+	<a id="lik" href="{%url 'like_dislike' pk=detalle.pk %}"><font color="blue"><i class="Medium material-icons" >thumb_up</i></font></a><p id="p">{{detalle.like}}</p>
+{% else %}
+	<a id="lik" href="{%url 'like_dislike' pk=detalle.pk %}"><font color="grey"><i class="Medium material-icons">thumb_up</i></font></a><p id="q">{{detalle.like}}</p>
+{% endif %} 
+<br>
+<a id="soluc" href="{% url 'retos.views.solucionar_reto_i' pk=detalle.pk %}" class="btn btn-default orange darken-4">Solucionar</a>
+
+{% endif %}
+</div>
+				<div class="row">
+					<div class="col s12 m12">
+						<div class="card ">
+						<h4 class="card-title" align="center">Lista Posicion Del Reto</h4>
+							<table class="highlight">
+								<thead>
+									<tr>
+										<th>Nombre</th>
+										<th>Apellido</th>
+										<th>Puntuacion</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									{% for rela in rela  %}
+										<tr>
+											<td>
+												{{rela.descripcion}}	
+											</td>
+											<td>
+												{{rela.persona}}
+											</td>
+											<td>
+												{{rela.calificacion}}	
+												
+											</td>
+										</tr>
+									{% endfor %}
+									
+								</tbody>
+							</table>
+						</div>
+					</div>	
+				</div>
+<a href="{% url 'lista_reto' %}" class="btn btn-default orange darken-4">ATRAS</a>
+			</div>
+
+{% endblock %}
+
+
+	

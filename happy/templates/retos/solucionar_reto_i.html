@@ -1,0 +1,12 @@
+{% extends 'retos/base.html' %}
+{% block content %}
+<div class="container">
+	<h4 align="center">Solucionar Reto</h4>
+    <p>Reto: {{r.descripcion}}</p>
+	<form action="." method="POST" enctype="multipart/form-data">
+ 		{% csrf_token %}
+ 		{{form.as_p}}
+ 		<input class="btn btn-default orange darken-4" type="submit" value="guardar"/>
+ 	</form>
+</div>
+{% endblock %}

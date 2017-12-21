@@ -1,0 +1,24 @@
+{% extends 'retos/base.html' %}
+{% block content %}
+	<div class="container">
+		<div class="card">
+				<font  color="#e65100">
+				<h4 align="center"> Mi Perfil </h4>
+				</font>
+		</div>	
+		<div class="card">	
+				<img src="/media/descarga.jpg" border=4 vspace=5 hspace=5 height="180px"  width="200px"  alt="imagen perfil" class="circle responsive-img" align="center">
+				<p>Nombre Usuario: {{ user.username	}}</p>
+				<p>Correo: {{ ver.correo	}}</p>	
+				<p>Identificacion: {{ ver.identificacion	}}</p>
+				<p>Nombre: {{ ver.nombres }}</p>
+				<p>Apellido: {{ ver.apellidos }}</p>
+				<p>N# ficha: {{ ver.ficha }}  </p>
+				<p>Telefono: {{ver.telefono}}</p>
+
+				<a href="{% url 'retos.views.editar' pk=ver.pk %}">editar</a>	
+				
+		</div>
+	</div>
+
+{% endblock %}

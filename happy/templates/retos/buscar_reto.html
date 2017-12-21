@@ -1,0 +1,39 @@
+{% extends 'retos/base.html' %}
+	{% block content %}
+		{% if user.is_authenticated %}
+			<div class="container">
+					{% if  mensaje  %}
+						<h5 class="color red">{{ mensaje }}</h5>
+					{% endif %}
+				<h4 align="center">Buscar reto</h4>
+				<form method="POST" action="" class="busqueda">
+						{% csrf_token %} 				
+						{{ form }}
+						<br>			
+						<button class="btn btn-default" color="#7F2148">busqueda</button>
+				</form>
+					<a href="{% url 'lista_reto' %}"><button id="bto" class="btn btn-default" >cancelar</button></a>
+					<div class="card">
+						{% for a in re %}
+						
+						<table class="striped ">
+							<thead>
+								<tr>
+									<th>RETO</th>						
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr>
+									<td><p>{{ a.categoria }} {{ a.descripcion }} </p>
+									</td>
+									
+								</tr>
+							</tbody>					        
+						</table>
+						{% endfor %}
+					
+					</div>
+			</div>		
+		{% endif %}
+	{% endblock content %}

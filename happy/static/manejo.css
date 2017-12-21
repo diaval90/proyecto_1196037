@@ -1,0 +1,186 @@
+#li{
+	background: #e65100;
+}
+.side-nav{
+	background-color: #252525;
+	color
+}
+.side-nav li>a{
+	color: #e65100;
+}
+body{
+	color: #464646;
+	font-family: 'Oxygen', sans-serif;
+}
+.tablaR{
+
+	width: 70%;
+	height: 150%;
+	position: relative;
+	top: 110px;
+	margin-left: 192px;
+	padding-bottom: : 50%;
+	padding-top: 5px;
+
+	border-radius: 104px 7px 104px 0px;
+		-moz-border-radius: 104px 7px 104px 0px;
+		-webkit-border-radius: 104px 7px 104px 0px;
+	border: 1px solid #000000;
+}
+.tablaR2{
+	width: 70%;  
+	margin-left: 192px;
+	position: absolute;
+	bottom: 30%;
+	}
+.busca{
+	padding-top: 50px;
+	width: 30%;
+	height: 100px;
+}
+#tabla{
+position: relative;
+top: 4px;
+}
+#buttonr{
+	position: relative;
+	top: -36px;
+	left: 145px;
+}
+#bto{
+	position: relative;
+	top: -36px;
+	left: 145px;
+}
+#canedit{
+	position: absolute;
+	top: 807px;
+	left: 40%;
+}
+#buttonlc{
+	position: relative;
+	top: -305px;
+}
+#bm{
+	position: relative;
+	top: -36px;
+	left: 140px;
+}
+#inst{
+	position: relative;
+	top: -36px;
+	left: 210px;
+}
+@media only screen and (min-width: 601px) {
+  nav.nav-extended .nav-wrapper {
+	min-height: 0px;
+  }
+  nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+	height: 0px;
+	line-height: 0px;
+  }
+  .navbar-fixed {
+	height: 0px;
+  }
+}
+#sec{
+	background: #666;
+	padding-left: 15px
+}
+#h{
+	position: relative;
+	left: 10px;
+}
+#prem{
+	position: relative;
+	left: 50%;
+	top: -380px;
+	background: white;
+	border: 1px solid #999999;
+	padding: 20px;
+	margin-bottom: 15px;
+}
+#dif{
+	position: relative;
+	left: 50%;
+	top: -380px;
+	background: white;
+	border: 1px solid #999999;
+	padding: 20px;
+	margin-bottom: 15px;
+}
+#puntos_max{
+	position: relative;
+	left: 27.5%;
+	top: -340px;
+}
+#like{
+	position: relative;
+	left: 50%;
+	top: -370px;
+	background: white;
+	border: 1px solid #999999;
+	padding: 20px;
+	margin-bottom: 15px;
+}
+#soluc{
+	position: relative;
+	left: 10px;
+	top: -320px;
+}
+#lik{
+	position: relative;
+	left: 10px;
+	top: -280px;
+}
+#p{
+	position: relative;
+	top: -315px;
+	left: 40px;
+}
+#q{
+	position: relative;
+	top: -315px;
+	left: 40px;
+}
+#des{
+	position: relative;
+	left: 20px;
+}
+
+#fecc{
+	position: relative;
+	left: 20px;
+}
+#fecp{
+	position: relative;
+	left: 20px;
+}
+#hop{
+	position: relative;
+	left: 20px;
+}
+#fecl{
+	position: relative;
+	left: 20px;
+}
+#hol{
+	position: relative;
+	left: 20px;
+}
+#tip{
+	position: relative;
+	left: 20px;
+}
+#arch{
+	position: relative;
+	left: 20px;
+}
+#cta{
+	position: relative;
+	left: 20px;
+}
+#est{
+	position: relative;
+	left: 20px;
+}

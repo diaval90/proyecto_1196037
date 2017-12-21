@@ -1,0 +1,16 @@
+{% extends 'retos/base.html' %}
+{% block content %}	
+	<div class="container">
+		<h4 align="center">Importar Lista De Apredices</h4>
+	<form action="" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button class="btn btn-default orange darken-4" type="submit">enviar</button>
+		<ul>
+			{% for lista in excel %}
+			<li>{{ li.nombre }} </li>
+			{% endfor %}
+		</ul>
+	</form>
+</div>
+{% endblock %}
